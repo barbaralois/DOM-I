@@ -46,6 +46,7 @@ const siteContent = {
 let logo = document.getElementById('logo-img');
 logo.setAttribute('src', siteContent['nav']['img-src']);
 
+// TASKS ONE AND TWO
 // other two images
 let headerImage = document.getElementById('cta-img');
 headerImage.setAttribute('src', siteContent['cta']['img-src']);
@@ -54,8 +55,7 @@ let middleImage = document.getElementById('middle-img');
 middleImage.setAttribute('src', siteContent['main-content']['middle-img-src']);
 
 // nav
-let theNav =
-  document.body.firstElementChild.firstElementChild.firstElementChild;
+let theNav = document.querySelector('nav');
 
 let navOne = theNav.firstElementChild;
 navOne.textContent = siteContent.nav['nav-item-1'];
@@ -76,62 +76,51 @@ let navSix = navFive.nextElementSibling;
 navSix.textContent = siteContent.nav['nav-item-6'];
 
 // cta
-let title =
-  document.body.firstElementChild.firstElementChild.nextElementSibling
-    .firstElementChild.firstElementChild;
+let title = document.querySelector('.cta-text h1');
 title.textContent = siteContent.cta.h1;
 
 let getStarted = title.nextElementSibling;
 getStarted.textContent = siteContent.cta.button;
 
-//variables for targeting main content
-let mainContent =
-  document.body.firstElementChild.firstElementChild.nextElementSibling
-    .nextElementSibling;
-
-let topContent = mainContent.firstElementChild;
-
-let middleContent = topContent.nextElementSibling;
-
-let bottomContent = middleContent.nextElementSibling;
-
 // main content
-let featureHeader = topContent.firstElementChild.firstElementChild;
+let featureHeader = document.querySelector('.top-content div:nth-child(1) h4');
 featureHeader.textContent = siteContent['main-content']['features-h4'];
 
 let featureContent = featureHeader.nextElementSibling;
 featureContent.textContent = siteContent['main-content']['features-content'];
 
-let aboutHeader =
-  topContent.firstElementChild.nextElementSibling.firstElementChild;
+let aboutHeader = document.querySelector('.top-content div:nth-child(2) h4');
 aboutHeader.textContent = siteContent['main-content']['about-h4'];
 
 let aboutContent = aboutHeader.nextElementSibling;
 aboutContent.textContent = siteContent['main-content']['about-content'];
 
-let servicesHeader = bottomContent.firstElementChild.firstElementChild;
+let servicesHeader = document.querySelector(
+  '.bottom-content div:nth-child(1) h4'
+);
 servicesHeader.textContent = siteContent['main-content']['services-h4'];
 
 let servicesContent = servicesHeader.nextElementSibling;
 servicesContent.textContent = siteContent['main-content']['services-content'];
 
-let productHeader =
-  bottomContent.firstElementChild.nextElementSibling.firstElementChild;
+let productHeader = document.querySelector(
+  '.bottom-content div:nth-child(2) h4'
+);
 productHeader.textContent = siteContent['main-content']['product-h4'];
 
 let productContent = productHeader.nextElementSibling;
 productContent.textContent = siteContent['main-content']['product-content'];
 
-let visionHeader =
-  bottomContent.firstElementChild.nextElementSibling.nextElementSibling
-    .firstElementChild;
+let visionHeader = document.querySelector(
+  '.bottom-content div:nth-child(3) h4'
+);
 visionHeader.textContent = siteContent['main-content']['vision-h4'];
 
 let visionContent = visionHeader.nextElementSibling;
 visionContent.textContent = siteContent['main-content']['vision-content'];
 
 // contact
-let contactSection = mainContent.nextElementSibling;
+let contactSection = document.querySelector('.contact');
 
 let contactHeader = contactSection.firstElementChild;
 contactHeader.textContent = siteContent.contact['contact-h4'];
@@ -146,5 +135,23 @@ let contactEmail = contactPhone.nextElementSibling;
 contactEmail.textContent = siteContent.contact.email;
 
 // footer
-let copyright = contactSection.nextElementSibling.firstElementChild;
+let copyright = document.querySelector('footer p');
 copyright.textContent = siteContent.footer.copyright;
+
+// TASK THREE
+// adding elements to Nav
+let careers = document.createElement('a');
+careers.setAttribute('href', '#');
+careers.textContent = 'Careers';
+
+let home = document.createElement('a');
+home.setAttribute('href', '#');
+home.textContent = 'Home';
+
+theNav.appendChild(careers);
+theNav.prepend(home);
+
+// changing nav color to green
+let navElements = document.querySelectorAll('a');
+
+navElements.forEach((element) => (element.style.color = 'green'));
