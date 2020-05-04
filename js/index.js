@@ -155,3 +155,20 @@ theNav.prepend(home);
 let navElements = document.querySelectorAll('a');
 
 navElements.forEach((element) => (element.style.color = 'green'));
+
+// stretch - changing other elements on the page
+navElements.forEach(
+  (element) => (
+    (element.style.fontWeight = 'bold'),
+    (element.style.textDecoration = 'underline')
+  )
+);
+
+let paragraphs = document.querySelectorAll('.text-content');
+paragraphs.forEach(
+  (paragraph) => (paragraph.style.border = '2px dashed green')
+);
+
+contactSection.style.display = 'flex';
+contactSection.style.flexDirection = 'column';
+contactSection.style.alignItems = 'center';
